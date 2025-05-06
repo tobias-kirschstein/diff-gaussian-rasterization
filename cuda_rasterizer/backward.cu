@@ -616,7 +616,8 @@ PerGaussianRenderCUDA(
 			dL_dalpha += ((invd * T) - (1.0f / (1.0f - alpha)) * (-ard)) * dL_invdepth;
 
 			// Account for last sample for colour
-			dL_dalpha += (-T_final / (1.0f - alpha)) * bg_dot_dpixel;
+			// Removed following https://github.com/graphdeco-inria/diff-gaussian-rasterization/issues/86
+// 			dL_dalpha += (-T_final / (1.0f - alpha)) * bg_dot_dpixel;
 			T *= (1.0f - alpha);
 
 
